@@ -1,0 +1,9 @@
+title: "JJ Ortiz | Power BI Consultant"
+description: "Enterprise Analytics & Business Intelligence"
+remote_theme: mmistakes/minimal-mistakes
+minimal_mistakes_skin: "dark"
+
+plugins:
+  - jekyll-include-cache
+
+markdown: kramdown
