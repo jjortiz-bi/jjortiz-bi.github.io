@@ -20,4 +20,4 @@ I design enterprise-grade Power BI solutions that help organizations:
 
 ## Featured Case Study
 
-[View Retail Project →](/retail/)
+[View Retail Project →](/Enterprise-Retail-PowerBI/retail/)
