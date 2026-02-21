@@ -173,3 +173,45 @@ footer {
     from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* Logo */
+.logo-img {
+    height: 50px;
+}
+
+/* Projects Section */
+.projects {
+    padding: 120px 0;
+}
+
+.section-subtitle {
+    color: #9CA3AF;
+    margin-bottom: 50px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: #111827;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.4s ease;
+}
+
+.project-card img {
+    width: 100%;
+    display: block;
+}
+
+.project-content {
+    padding: 25px;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
