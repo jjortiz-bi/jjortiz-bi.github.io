@@ -5,6 +5,7 @@ body {
     font-family: 'Segoe UI', sans-serif;
     background: #ffffff;
     color: #1F2937;
+    scroll-behavior: smooth;
 }
 
 .container {
@@ -41,11 +42,12 @@ header {
     transition: all 0.35s ease;
 }
 
-/* Scroll Premium Effect */
+/* Premium Glass Scroll Effect */
 
 header.scrolled {
     background: rgba(30, 58, 138, 0.70);
     backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
@@ -57,7 +59,7 @@ header.scrolled .logo-img {
     height: 65px;
 }
 
-/* Desktop Nav */
+/* ================= DESKTOP NAV ================= */
 
 .desktop-nav {
     display: flex;
@@ -72,7 +74,7 @@ header.scrolled .logo-img {
     transition: all 0.3s ease;
 }
 
-/* Premium underline animation */
+/* Animated Underline */
 .desktop-nav a::after {
     content: "";
     position: absolute;
@@ -125,6 +127,7 @@ header.scrolled .logo-img {
     flex-direction: column;
     background: rgba(23, 37, 84, 0.95);
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     text-align: center;
     animation: fadeIn 0.3s ease;
 }
@@ -134,10 +137,11 @@ header.scrolled .logo-img {
     color: white;
     text-decoration: none;
     border-top: 1px solid rgba(255,255,255,0.08);
+    transition: background 0.3s ease;
 }
 
 .mobile-menu a:hover {
-    background: rgba(255,255,255,0.05);
+    background: rgba(255,255,255,0.06);
 }
 
 .mobile-menu.active {
@@ -149,7 +153,69 @@ header.scrolled .logo-img {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ================= PROJECTS GRID ================= */
+/* ================= HERO ================= */
+
+.hero {
+    padding: 120px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 42px;
+    max-width: 900px;
+    margin: auto;
+    color: #1E3A8A;
+}
+
+.hero p {
+    margin-top: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #6B7280;
+}
+
+/* Buttons */
+
+.cta-buttons {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 14px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #1E3A8A;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #172554;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.btn-secondary {
+    border: 2px solid #1E3A8A;
+    color: #1E3A8A;
+}
+
+.btn-secondary:hover {
+    background: #1E3A8A;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* ================= PROJECTS ================= */
 
 .projects {
     padding: 120px 0;
@@ -187,6 +253,7 @@ header.scrolled .logo-img {
     border-radius: 14px;
     border: 1px solid #E5E7EB;
     transition: all 0.3s ease;
+    overflow: visible;
 }
 
 .project-card img {
@@ -195,6 +262,7 @@ header.scrolled .logo-img {
     display: block;
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
+    transition: transform 0.4s ease;
 }
 
 .project-card:hover {
@@ -202,8 +270,48 @@ header.scrolled .logo-img {
     box-shadow: 0 20px 50px rgba(0,0,0,0.10);
 }
 
+.project-card:hover img {
+    transform: scale(1.02);
+}
+
 .project-content {
     padding: 25px;
+}
+
+/* ================= SERVICES ================= */
+
+.services {
+    padding: 120px 0;
+}
+
+.cards {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #F9FAFB;
+    padding: 30px;
+    border-radius: 14px;
+    flex: 1;
+    min-width: 250px;
+    border: 1px solid #E5E7EB;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.10);
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    padding: 40px 0;
+    background: #F3F4F6;
+    text-align: center;
+    color: #6B7280;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -220,5 +328,13 @@ header.scrolled .logo-img {
 
     .logo-img {
         height: 65px;
+    }
+
+    .hero h2 {
+        font-size: 30px;
+    }
+
+    .cards {
+        flex-direction: column;
     }
 }
