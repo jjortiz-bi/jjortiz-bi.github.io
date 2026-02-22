@@ -44,6 +44,7 @@ header {
 }
 
 /* Scroll Glass Effect */
+
 header.scrolled {
     background: rgba(30, 58, 138, 0.75);
     backdrop-filter: blur(14px);
@@ -59,112 +60,163 @@ header.scrolled .logo-img {
     height: 65px;
 }
 
-/* ================= TEXT ANIMATION ================= */
+/* ================= DESKTOP NAV ================= */
 
-.header-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 32px;
+.desktop-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.desktop-nav a {
+    color: white;
+    text-decoration: none;
     font-weight: 700;
-    color: #fff;
-    z-index: 1;
+    letter-spacing: 0.5px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.desktop-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.desktop-nav a:hover::after {
+    width: 100%;
+}
+
+/* ================= HAMBURGER ================= */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 26px;
+    height: 3px;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ================= MOBILE MENU ================= */
+
+.mobile-menu {
+    display: flex;
+    flex-direction: column;
+    background: rgba(23, 37, 84, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    text-align: center;
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+
+    transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+.mobile-menu.active {
+    max-height: 500px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-menu a {
+    padding: 18px;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    transition: background 0.25s ease;
+}
+
+.mobile-menu a:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    padding: 120px 0;
     text-align: center;
 }
 
-.dynamic-text {
-    display: inline-block;
-    animation: text-change 9s infinite; /* Text change every 9 seconds */
-}
-
-@keyframes text-change {
-    0% {
-        content: "Business Consulting";
-    }
-    33% {
-        content: "Data Modeling";
-    }
-    66% {
-        content: "BI Automation";
-    }
-    100% {
-        content: "Business Consulting";
-    }
-}
-
-/* ================= ABOUT ================= */
-
-.about {
-    padding: 120px 0;
-    background: #ffffff;
-}
-
-.about-container {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.about-image img {
-    width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.10);
-}
-
-.about-content h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
+.hero h2 {
+    font-size: 42px;
+    max-width: 900px;
+    margin: auto;
     color: #1E3A8A;
 }
 
-.about-intro {
-    font-weight: 600;
-    margin-bottom: 20px;
+.hero p {
+    margin-top: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #6B7280;
 }
 
-.skills-grid {
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-}
+/* ================= BUTTONS ================= */
 
-.skill-box {
-    background: #F3F4F6;
-    padding: 12px 16px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 14px;
-}
-
-.impact {
+.cta-buttons {
     margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.impact h4 {
-    margin-bottom: 15px;
+.btn {
+    padding: 14px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #1E3A8A;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #172554;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.btn-secondary {
+    border: 2px solid #1E3A8A;
     color: #1E3A8A;
 }
 
-.impact ul {
-    padding-left: 20px;
-}
-
-.impact li {
-    margin-bottom: 10px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 992px) {
-    .about-container {
-        grid-template-columns: 1fr;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
+.btn-secondary:hover {
+    background: #1E3A8A;
+    color: white;
+    transform: translateY(-3px);
 }
 
 /* ================= PROJECTS ================= */
@@ -179,18 +231,21 @@ header.scrolled .logo-img {
     gap: 30px;
 }
 
+/* 4 Columns Desktop */
 @media (min-width: 1200px) {
     .project-grid {
         grid-template-columns: repeat(4, 1fr);
     }
 }
 
+/* 2 Columns Tablet */
 @media (max-width: 1199px) and (min-width: 769px) {
     .project-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
+/* 1 Column Mobile */
 @media (max-width: 768px) {
     .project-grid {
         grid-template-columns: 1fr;
