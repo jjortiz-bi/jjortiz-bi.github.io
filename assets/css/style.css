@@ -9,7 +9,7 @@ body {
 
 .container {
     width: 90%;
-    max-width: 1400px; /* Increased to fit 4 cards nicely */
+    max-width: 1400px;
     margin: auto;
 }
 
@@ -22,27 +22,39 @@ section {
 header {
     position: sticky;
     top: 0;
-    background: rgba(30, 58, 138, 1); /* Full solid */
+    background: rgba(30, 58, 138, 1);
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition: all 0.35s ease;
 }
 
-/* When Scrolled */
-header.scrolled {
-    background: rgba(30, 58, 138, 0.75); /* Translucent */
-    backdrop-filter: blur(10px);        /* Glass effect */
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-}
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    padding: 22px 0;
+    transition: all 0.35s ease;
 }
 
 .logo-img {
     height: 90px;
     filter: brightness(0) invert(1);
+    transition: all 0.35s ease;
+}
+
+/* Scroll Premium Effect */
+
+header.scrolled {
+    background: rgba(30, 58, 138, 0.70);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+header.scrolled .nav-container {
+    padding: 12px 0;
+}
+
+header.scrolled .logo-img {
+    height: 65px;
 }
 
 /* Desktop Nav */
@@ -56,140 +68,114 @@ header.scrolled {
     color: white;
     text-decoration: none;
     font-weight: 600;
-    transition: 0.3s;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
-.desktop-nav a:hover {
-    opacity: 0.7;
+/* Premium underline animation */
+.desktop-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
 }
 
-/* Hamburger */
+.desktop-nav a:hover::after {
+    width: 100%;
+}
+
+/* ================= HAMBURGER ================= */
 
 .hamburger {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
     cursor: pointer;
 }
 
 .hamburger span {
-    width: 25px;
+    width: 26px;
     height: 3px;
     background: white;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
-/* Mobile Menu */
+/* Animate to X */
+
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ================= MOBILE MENU ================= */
 
 .mobile-menu {
     display: none;
     flex-direction: column;
-    background: #172554;
+    background: rgba(23, 37, 84, 0.95);
+    backdrop-filter: blur(12px);
     text-align: center;
+    animation: fadeIn 0.3s ease;
 }
 
 .mobile-menu a {
-    padding: 16px;
+    padding: 18px;
     color: white;
     text-decoration: none;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255,255,255,0.08);
 }
 
 .mobile-menu a:hover {
-    background: #1E40AF;
+    background: rgba(255,255,255,0.05);
 }
 
 .mobile-menu.active {
     display: flex;
 }
 
-/* ================= HERO ================= */
-
-.hero {
-    padding: 120px 0;
-    text-align: center;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.hero h2 {
-    font-size: 42px;
-    max-width: 900px;
-    margin: auto;
-    color: #1E3A8A;
-}
-
-.hero p {
-    margin-top: 20px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    color: #6B7280;
-}
-
-/* Buttons */
-
-.cta-buttons {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    padding: 14px 30px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.btn-primary {
-    background: #1E3A8A;
-    color: white;
-}
-
-.btn-primary:hover {
-    background: #172554;
-}
-
-.btn-secondary {
-    border: 2px solid #1E3A8A;
-    color: #1E3A8A;
-}
-
-.btn-secondary:hover {
-    background: #1E3A8A;
-    color: white;
-}
-
-/* ================= PROJECTS ================= */
+/* ================= PROJECTS GRID ================= */
 
 .projects {
     padding: 120px 0;
     background: #F5F7FA;
 }
 
-/* Base grid */
 .project-grid {
     display: grid;
     gap: 30px;
 }
 
-/* Large Desktop - 4 in one row */
+/* 4 Columns Desktop */
 @media (min-width: 1200px) {
     .project-grid {
         grid-template-columns: repeat(4, 1fr);
     }
 }
 
-/* Laptop / Tablet - 2 per row */
+/* 2 Columns Tablet */
 @media (max-width: 1199px) and (min-width: 769px) {
     .project-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Mobile - 1 per row */
+/* 1 Column Mobile */
 @media (max-width: 768px) {
     .project-grid {
         grid-template-columns: 1fr;
@@ -198,63 +184,26 @@ header.scrolled {
 
 .project-card {
     background: white;
-    border-radius: 12px;
+    border-radius: 14px;
     border: 1px solid #E5E7EB;
-    transition: 0.3s;
-    overflow: visible; /* Prevent cropping */
+    transition: all 0.3s ease;
 }
 
 .project-card img {
     width: 100%;
-    height: auto; /* Maintain full dashboard ratio */
+    height: auto;
     display: block;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
 }
 
 .project-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.10);
 }
 
 .project-content {
     padding: 25px;
-}
-
-/* ================= SERVICES ================= */
-
-.services {
-    padding: 120px 0;
-}
-
-.cards {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.card {
-    background: #F9FAFB;
-    padding: 30px;
-    border-radius: 12px;
-    flex: 1;
-    min-width: 250px;
-    border: 1px solid #E5E7EB;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-}
-
-/* ================= FOOTER ================= */
-
-footer {
-    padding: 40px 0;
-    background: #F3F4F6;
-    text-align: center;
-    color: #6B7280;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -270,14 +219,6 @@ footer {
     }
 
     .logo-img {
-        height: 60px;
-    }
-
-    .hero h2 {
-        font-size: 30px;
-    }
-
-    .cards {
-        flex-direction: column;
+        height: 65px;
     }
 }
