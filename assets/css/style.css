@@ -179,6 +179,82 @@ header.scrolled .logo-img {
     color: #6B7280;
 }
 
+/* ================= ABOUT ================= */
+
+.about {
+    padding: 120px 0;
+    background: #ffffff;
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.10);
+}
+
+.about-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #1E3A8A;
+}
+
+.about-intro {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.skills-grid {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.skill-box {
+    background: #F3F4F6;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.impact {
+    margin-top: 40px;
+}
+
+.impact h4 {
+    margin-bottom: 15px;
+    color: #1E3A8A;
+}
+
+.impact ul {
+    padding-left: 20px;
+}
+
+.impact li {
+    margin-bottom: 10px;
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
 /* ================= BUTTONS ================= */
 
 .cta-buttons {
