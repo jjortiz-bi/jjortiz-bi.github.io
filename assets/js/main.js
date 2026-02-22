@@ -1,21 +1,18 @@
-const counters = document.querySelectorAll('.counter');
+// Hamburger Toggle
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
 
-counters.forEach(counter => {
-    counter.innerText = '0';
+hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+});
 
-    const updateCounter = () => {
-        const target = +counter.getAttribute('data-target');
-        const current = +counter.innerText;
+// Header Shrink on Scroll
+const header = document.getElementById("mainHeader");
 
-        const increment = target / 100;
-
-        if (current < target) {
-            counter.innerText = Math.ceil(current + increment);
-            setTimeout(updateCounter, 20);
-        } else {
-            counter.innerText = target;
-        }
-    };
-
-    updateCounter();
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        header.classList.add("shrink");
+    } else {
+        header.classList.remove("shrink");
+    }
 });
