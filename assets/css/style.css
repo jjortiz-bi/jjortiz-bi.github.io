@@ -1,5 +1,9 @@
 /* ================= BASE ================= */
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
@@ -21,9 +25,17 @@ section {
 header {
     position: sticky;
     top: 0;
-    background: #1E3A8A;
+    background: rgba(30, 58, 138, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: 25px 0;
     z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+header.shrink {
+    padding: 12px 0;
+    background: rgba(30, 58, 138, 0.95);
 }
 
 .nav-container {
@@ -32,13 +44,21 @@ header {
     align-items: center;
 }
 
-/* Bigger Logo */
 .logo-img {
-    height: 140px;
+    height: 120px;
     filter: brightness(0) invert(1);
+    transition: 0.3s;
+}
+
+header.shrink .logo-img {
+    height: 80px;
 }
 
 /* Navigation */
+
+nav {
+    display: flex;
+}
 
 nav a {
     text-decoration: none;
@@ -58,12 +78,28 @@ nav a {
     color: #1E3A8A;
 }
 
+/* ================= HAMBURGER ================= */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
 /* ================= HERO ================= */
 
 .hero {
     padding: 120px 0;
     text-align: center;
-    background: #FFFFFF;
 }
 
 .hero h2 {
@@ -81,7 +117,7 @@ nav a {
     color: #6B7280;
 }
 
-/* ================= BUTTONS ================= */
+/* Buttons */
 
 .cta-buttons {
     margin-top: 40px;
@@ -124,57 +160,10 @@ nav a {
     transform: translateY(-3px);
 }
 
-/* ================= PROJECTS ================= */
-
-.projects {
-    padding: 120px 0;
-    background: #F5F7FA;
-}
-
-h3 {
-    font-size: 28px;
-    margin-bottom: 10px;
-    color: #1E3A8A;
-}
-
-.section-subtitle {
-    color: #6B7280;
-    margin-bottom: 50px;
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.project-card {
-    background: #FFFFFF;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: 0.3s ease;
-    border: 1px solid #E5E7EB;
-}
-
-.project-card img {
-    width: 100%;
-    display: block;
-}
-
-.project-content {
-    padding: 25px;
-}
-
-.project-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-}
-
 /* ================= SERVICES ================= */
 
 .services {
     padding: 120px 0;
-    background: #FFFFFF;
 }
 
 .cards {
@@ -207,106 +196,12 @@ footer {
     color: #6B7280;
 }
 
-/* ================= MOBILE RESPONSIVE ================= */
+/* ================= MOBILE ================= */
 
-@media (max-width: 768px) {
-
-    header {
-        padding: 15px 0;
-    }
-
-    .nav-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-
-    /* Smaller Logo on Mobile */
-    .logo-img {
-        height: 80px;
-    }
-
-    nav {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        align-items: center;
-    }
-
-    nav a {
-        margin-left: 0;
-    }
-
-    .nav-btn {
-        padding: 6px 14px;
-        font-size: 14px;
-    }
-
-    /* Hero Text Resize */
-    .hero h2 {
-        font-size: 30px;
-        line-height: 1.2;
-    }
-
-    .hero {
-        padding: 80px 0;
-    }
-
-    .container {
-        width: 90%;
-    }
-
-}
-/* ================= PREMIUM HEADER ================= */
-
-header {
-    position: sticky;
-    top: 0;
-    background: rgba(30, 58, 138, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 25px 0;
-    z-index: 1000;
-    transition: all 0.3s ease;
-}
-
-/* Shrink Effect */
-header.shrink {
-    padding: 12px 0;
-    background: rgba(30, 58, 138, 0.95);
-}
-
-/* Smooth Scroll */
-html {
-    scroll-behavior: smooth;
-}
-
-/* ================= HAMBURGER ================= */
-
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background: white;
-    border-radius: 3px;
-    transition: 0.3s;
-}
-
-/* Mobile Menu */
 @media (max-width: 768px) {
 
     .logo-img {
         height: 80px;
-    }
-
-    .nav-container {
-        justify-content: space-between;
     }
 
     .hamburger {
@@ -324,7 +219,6 @@ html {
         display: none;
         padding: 20px 0;
         gap: 15px;
-        backdrop-filter: blur(12px);
     }
 
     nav.active {
@@ -335,5 +229,12 @@ html {
         margin: 0;
         font-size: 16px;
     }
-}
 
+    .hero h2 {
+        font-size: 30px;
+    }
+
+    .container {
+        width: 90%;
+    }
+}
