@@ -171,9 +171,17 @@ header {
 .project-card {
     background: white;
     border-radius: 12px;
-    overflow: hidden;
     border: 1px solid #E5E7EB;
     transition: 0.3s;
+    overflow: visible; /* prevents cropping */
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;        /* keeps natural aspect ratio */
+    display: block;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }
 
 .project-card:hover {
