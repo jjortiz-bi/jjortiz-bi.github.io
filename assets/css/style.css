@@ -9,7 +9,7 @@ body {
 
 .container {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1400px; /* Increased to fit 4 cards nicely */
     margin: auto;
 }
 
@@ -155,17 +155,38 @@ header {
     color: white;
 }
 
-/* Projects */
+/* ================= PROJECTS ================= */
 
 .projects {
     padding: 120px 0;
     background: #F5F7FA;
 }
 
+/* Base grid */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
+}
+
+/* Large Desktop - 4 in one row */
+@media (min-width: 1200px) {
+    .project-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Laptop / Tablet - 2 per row */
+@media (max-width: 1199px) and (min-width: 769px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile - 1 per row */
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .project-card {
@@ -173,12 +194,12 @@ header {
     border-radius: 12px;
     border: 1px solid #E5E7EB;
     transition: 0.3s;
-    overflow: visible; /* prevents cropping */
+    overflow: visible; /* Prevent cropping */
 }
 
 .project-card img {
     width: 100%;
-    height: auto;        /* keeps natural aspect ratio */
+    height: auto; /* Maintain full dashboard ratio */
     display: block;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
@@ -193,7 +214,7 @@ header {
     padding: 25px;
 }
 
-/* Services */
+/* ================= SERVICES ================= */
 
 .services {
     padding: 120px 0;
@@ -220,7 +241,7 @@ header {
     box-shadow: 0 15px 40px rgba(0,0,0,0.08);
 }
 
-/* Footer */
+/* ================= FOOTER ================= */
 
 footer {
     padding: 40px 0;
