@@ -37,6 +37,14 @@ header {
     transition: padding 0.35s ease;
 }
 
+.nav-container::after {
+    content: "Senior Power BI Developer"; /* Change this to your exact title */
+    font-size: 16px;
+    color: #F5F7FA;
+    font-weight: 400;
+    margin-left: 20px;
+}
+
 .logo-img {
     height: 90px;
     filter: brightness(0) invert(1);
@@ -160,7 +168,7 @@ header.scrolled .logo-img {
 /* ================= HERO ================= */
 
 .hero {
-    padding: 120px 0;
+    padding: 120px 0 150px; /* Push down more space on mobile and desktop */
     text-align: center;
 }
 
@@ -171,14 +179,14 @@ header.scrolled .logo-img {
     color: #1E3A8A;
 }
 
-.hero p {
+.hero p.hero-subtitle {
+    font-size: 18px;
     margin-top: 20px;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
     color: #6B7280;
 }
-
 /* ================= ABOUT ================= */
 
 .about {
@@ -240,6 +248,17 @@ header.scrolled .logo-img {
 
 .impact li {
     margin-bottom: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Responsive */
